@@ -1,0 +1,91 @@
+Java provides built-in support for Queue and Stack through the Java Collections Framework. 
+These data structures are commonly used in various algorithms and operations. 
+Let's break down what each does and mention some useful methods.
+
+
+
+Stack
+A Stack follows the Last-In-First-Out (LIFO) principle, meaning the last item added to the stack is the first one to be removed.
+
+Key Methods in Stack:
+
+push(E item): Adds an item to the top of the stack.
+pop(): Removes and returns the top item from the stack. 
+Throws an EmptyStackException if the stack is empty.
+
+peek(): Returns the top item without removing it. 
+Throws an EmptyStackException if the stack is empty.
+
+isEmpty(): Returns true if the stack is empty, otherwise false.
+
+search(Object o): Searches for an item in the stack and returns its 1-based position from the top. 
+If the item is not found, returns -1.
+Example Usage of Stack:
+java
+Copy code
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        
+        // Add elements to the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        
+        System.out.println("Top of stack: " + stack.peek()); // Output: 30
+        
+        // Remove the top element
+        System.out.println("Popped from stack: " + stack.pop()); // Output: 30
+        
+        System.out.println("Is stack empty? " + stack.isEmpty()); // Output: false
+        
+        // Search for an element
+        System.out.println("Position of 10 in stack: " + stack.search(10)); // Output: 2
+    }
+}
+Queue
+A Queue follows the First-In-First-Out (FIFO) principle, 
+where the first item added is the first to be removed.
+
+Implementations of Queue:
+
+LinkedList: Implements Queue and Deque.
+ArrayDeque: Implements Queue and is more flexible than Stack.
+PriorityQueue: Maintains elements in natural or specified order.
+Key Methods in Queue:
+
+add(E e): Adds an item to the queue. Throws an exception if the addition fails.
+offer(E e): Adds an item to the queue. Returns false if it can't be added.
+remove(): Removes and returns the head of the queue. Throws an exception if empty.
+poll(): Removes and returns the head of the queue. Returns null if the queue is empty.
+element(): Returns the head of the queue without removing it. Throws an exception if empty.
+peek(): Returns the head without removing it. Returns null if empty.
+isEmpty(): Returns true if the queue is empty, otherwise false.
+Example Usage of Queue:
+java
+Copy code
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<Integer> queue = new LinkedList<>();
+        
+        // Add elements to the queue
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+        
+        System.out.println("Front of queue: " + queue.peek()); // Output: 10
+        
+        // Remove the head element
+        System.out.println("Removed from queue: " + queue.poll()); // Output: 10
+        
+        System.out.println("Is queue empty? " + queue.isEmpty()); // Output: false
+    }
+}
+These examples demonstrate basic operations with Stack and Queue. 
+Depending on the use case, you may choose different implementations like LinkedList or ArrayDeque for a Queue or Stack. 
+The choice of implementation can affect performance and flexibility.

@@ -1,0 +1,162 @@
+import queue  # For Queue implementation
+from collections import deque  # For Deque
+import heapq  # For Heap operations
+
+# Taking Input from Command Line
+# Read a line from command line, split into words, and convert each to an integer
+arr = list(map(int, input("Enter integers separated by spaces: ").split()))
+print("Array from input:", arr)
+
+# Arrays (Lists)
+# Basic list operations
+arr.append(100)  # Add to end of list
+arr.insert(1, 50)  # Insert at a specific index
+arr.pop()  # Remove last item
+arr.remove(50)  # Remove first occurrence of a specific value
+print("Array after modifications:", arr)
+
+# Get the length of a list (array)
+print("Length of the array:", len(arr))
+
+# Slicing, accessing elements, and list comprehension
+arr_slice = arr[1:3]  # Get a slice of the list
+first_element = arr[0]  # Access the first element
+last_element = arr[-1]  # Access the last element
+even_numbers = [x for x in arr if x % 2 == 0]  # List comprehension
+print("Even numbers from array:", even_numbers)
+
+# Strings
+s = "hello, world"
+s_upper = s.upper()  # Convert to uppercase
+s_lower = s.lower()  # Convert to lowercase
+s_split = s.split(",")  # Split by comma
+s_replaced = s.replace("world", "Python")  # Replace part of the string
+print("String manipulations:", s_upper, s_lower, s_split, s_replaced)
+
+# Get the length of a string
+print("Length of the string:", len(s))
+
+# Converting Between Strings and Integers
+num_str = "123"
+num_int = int(num_str)  # Convert to integer
+str_from_int = str(num_int)  # Convert to string
+print("Conversion from string to int and back:", num_int, str_from_int)
+
+# Stacks
+# Using a list as a stack (LIFO)
+stack = []
+stack.append(1)  # Push onto stack
+stack.append(2)
+top_element = stack.pop()  # Pop from stack
+print("Stack operations:", stack)
+
+# Get the length of a stack
+print("Length of the stack:", len(stack))
+
+# Queues
+# Using `queue.Queue` for FIFO behavior
+q = queue.Queue()
+q.put(1)  # Enqueue
+q.put(2)
+first_in_queue = q.get()  # Dequeue
+print("Queue operations:", first_in_queue, q.qsize())  # Get queue size
+
+# Get the length of a queue
+print("Queue size:", q.qsize())
+
+# Deque
+# Using `collections.deque` for double-ended queue
+dq = deque([1, 2, 3])
+dq.append(4)  # Add to the end
+dq.appendleft(0)  # Add to the front
+dq.pop()  # Remove from the end
+dq.popleft()  # Remove from the front
+print("Deque operations:", dq)
+
+# Get the length of a deque
+print("Length of the deque:", len(dq))
+
+# Heaps
+# Using `heapq` to create a min-heap
+heap = []
+heapq.heappush(heap, 3)  # Min-heap push
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 2)
+smallest_element = heapq.heappop(heap)  # Pop the smallest
+print("Min-heap operations:", smallest_element, heap)
+
+# Get the length of the heap
+print("Length of the heap:", len(heap))
+
+# For-Loops
+# Basic loop over a range
+for i in range(5):
+    print("Loop iteration:", i)
+
+# Loop over a list with index and value
+arr = [10, 20, 30, 40]
+for index, value in enumerate(arr):
+    print(f"Index {index} has value {value}")
+
+# Map Function
+# Applying a lambda function to a list
+arr = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, arr))  # Apply a function to each element
+print("Squared numbers:", squared)
+
+# Using map to work with multiple iterables
+arr1 = [1, 2, 3]
+arr2 = [4, 5, 6]
+sum_arr = list(map(lambda x, y: x + y, arr1, arr2))  # Adding corresponding elements
+print("Sum of corresponding elements:", sum_arr)
+
+# Sets
+s = {1, 2, 3}
+s.add(4)  # Add to set
+s.remove(2)  # Remove from set
+s_union = s.union({5, 6})  # Union of sets
+s_intersection = s.intersection({1, 4, 6})  # Intersection of sets
+print("Set operations:", s, s_union, s_intersection)
+
+# Get the length of a set
+print("Length of the set:", len(s))
+
+# Dictionaries (Hashmaps)
+# Creating a dictionary
+d = {"name": "Alice", "age": 25, "city": "New York"}
+
+# Accessing values by key
+name = d["name"]  # Get value by key
+age = d.get("age", 0)  # Safe way to get value with a default
+print("Name and Age:", name, age)
+
+# Adding and modifying dictionary values
+d["city"] = "Los Angeles"  # Modify existing key
+d["country"] = "USA"  # Add new key-value pair
+print("Updated dictionary:", d)
+
+# Removing dictionary elements
+del d["city"]  # Delete a key-value pair
+city_removed = d.pop("city", "Not found")  # Safe removal with default
+print("Dictionary after deletion:", d)
+
+# Looping through a dictionary
+for key, value in d.items():  # Loop through keys and values
+    print(f"{key}: {value}")
+
+# Get the length of a dictionary
+print("Length of the dictionary:", len(d))
+
+# Sorting a dictionary by key or value
+# Dictionaries in Python 3.7+ are ordered by insertion, but you can create sorted lists
+sorted_keys = sorted(d.keys())  # Get a sorted list of keys
+sorted_values = sorted(d.values())  # Get a sorted list of values
+sorted_items = sorted(d.items(), key=lambda x: x[1])  # Sort by value
+print("Sorted keys:", sorted_keys)
+print("Sorted values:", sorted_values)
+print("Dictionary sorted by value:", sorted_items)
+
+# Sorting a 2D array by multiple keys
+data = [(3, "c"), (1, "a"), (2, "b")]
+data_sorted = sorted(data, key=lambda x: (x[0], x[1]))  # Sort by first, then second
+print("2D array sorted:", data_sorted)

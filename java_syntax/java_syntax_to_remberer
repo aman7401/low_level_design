@@ -1,0 +1,29 @@
+Comparator<int[]> endComparator = new Comparator<int[]>() {
+    @Override
+    public int compare(int[] a, int[] b) {
+        return Integer.compare(a[1], b[1]); // Sort by the second element
+    }
+};
+
+// Reversed comparator
+Comparator<int[]> reversedEndComparator = endComparator.reversed();
+
+Very very importtant 
+
+Comparator<int[]> reversedEndComparator = new Comparator<int[]>() {
+    @Override
+    public int compare(int[] a, int[] b) {
+        return Integer.compare(b[1], a[1]); // Sort by the second element in reverse order
+    }
+};
+
+
+Array.sort(reversedEndComparator);
+
+Priorioty Queue 
+
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+Reverse Order Priority Queue 
+
+
+

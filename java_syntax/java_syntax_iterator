@@ -1,0 +1,78 @@
+An Iterator in Java is part of the Java Collections Framework and is used 
+to iterate through a collection of elements one by one. It provides a consistent 
+way to traverse elements in a collection, regardless of the underlying data structure. 
+The Iterator interface is implemented by various collection types, including ArrayList, 
+LinkedList, HashSet, and HashMap.
+
+Here's an overview of the Iterator interface and its key functions, 
+along with usage examples:
+
+Basic Functions of Iterator
+hasNext(): Checks if there's a next element in the collection. It returns true if there is, 
+and false if the iterator has reached the end.
+
+Iterator<String> iterator = list.iterator();
+while (iterator.hasNext()) {
+  System.out.println(iterator.next());  // Output the current element and move to the next
+}
+
+next(): Returns the next element in the iteration and moves the iterator forward. 
+If there are no more elements, it throws a NoSuchElementException.
+String item = iterator.next();  // Gets the next item
+
+remove(): Removes the last element returned by the iterator. 
+This can only be called once per call to next(). 
+If called repeatedly or without calling next(), it throws an IllegalStateException.
+iterator.next();  // Move to the next element
+iterator.remove();  // Removes the last element returned by next()
+
+Advanced Operations with Iterator
+Using an Iterator with a Collection:
+List<String> list = new ArrayList<>(List.of("Apple", "Banana", "Cherry"));
+Iterator<String> iterator = list.iterator();
+
+while (iterator.hasNext()) {
+  String item = iterator.next();
+  System.out.println(item);  // Outputs "Apple", "Banana", "Cherry"
+}
+
+Modifying a Collection While Iterating:
+Iterator<String> iterator = list.iterator();
+while (iterator.hasNext()) {
+  String item = iterator.next();
+  if (item.equals("Banana")) {
+    iterator.remove();  // Remove "Banana" from the list
+  }
+}
+
+Using Iterator with a HashMap:
+Map<String, Integer> map = new HashMap<>(Map.of("Apple", 1, "Banana", 2));
+Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+
+while (iterator.hasNext()) {
+  Map.Entry<String, Integer> entry = iterator.next();
+  System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());  // Output key-value pairs
+}
+
+
+Iterator Variations
+ListIterator: This is a specialized iterator for lists that allows bidirectional 
+traversal and additional functions like add() and set().
+List<String> list = new ArrayList<>(List.of("Apple", "Banana", "Cherry"));
+ListIterator<String> listIterator = list.listIterator();
+
+while (listIterator.hasNext()) {
+  System.out.println(listIterator.next());
+}
+
+listIterator.add("Orange");  // Adds "Orange" at the current position
+
+while (listIterator.hasPrevious()) {
+  System.out.println(listIterator.previous());
+}
+
+Output : 
+Orange
+Cherry
+Banana
+Apple

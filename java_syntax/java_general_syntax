@@ -1,0 +1,246 @@
+
+Java Imports
+First, we need to import Java's equivalent classes for queues, deques, heaps, and other data structures.
+
+import java.util.*;  // Contains most data structures like ArrayList, LinkedList, HashSet, HashMap
+import java.util.concurrent.LinkedBlockingQueue;  // For Queue implementation
+import java.util.Deque;  // For Deque
+import java.util.ArrayDeque;  // Deque implementation
+import java.util.PriorityQueue;  // For Heaps
+
+1. Input and List Operations
+
+
+import java.util.Scanner;  // For reading user input
+
+public class JavaExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter integers separated by spaces: ");
+        String input = scanner.nextLine();
+
+        // Convert input string to list of integers
+        List<Integer> arr = new ArrayList<>();
+        for (String str : input.split(" ")) {
+            arr.add(Integer.parseInt(str));
+        }
+        System.out.println("Array from input: " + arr);
+
+        // List (ArrayList) operations
+        arr.add(100);  // Append to the end of the list
+        arr.add(1, 50);  // Insert at a specific index
+        arr.remove(arr.size() - 1);  // Remove last item
+        arr.remove(Integer.valueOf(50));  // Remove the first occurrence of a specific value
+        System.out.println("Array after modifications: " + arr);
+
+        // Get the length of a list (ArrayList)
+        System.out.println("Length of the array: " + arr.size());
+
+        // Slicing and accessing elements
+        List<Integer> arrSlice = arr.subList(1, 3);  // Get a slice (from index 1 to 2)
+        Integer firstElement = arr.get(0);  // Access the first element
+        Integer lastElement = arr.get(arr.size() - 1);  // Access the last element
+        List<Integer> evenNumbers = new ArrayList<>();
+        for (Integer x : arr) {
+            if (x % 2 == 0) {
+                evenNumbers.add(x);
+            }
+        }
+        System.out.println("Even numbers from array: " + evenNumbers);
+2. String Operations
+        // String operations
+        String s = "hello, world";
+        String sUpper = s.toUpperCase();  // Convert to uppercase
+        String sLower = s.toLowerCase();  // Convert to lowercase
+        String[] sSplit = s.split(",");  // Split by comma
+        String sReplaced = s.replace("world", "Java");  // Replace part of the string
+        System.out.println("String manipulations: " + sUpper + ", " + sLower + ", " + Arrays.toString(sSplit) + ", " + sReplaced);
+
+        // Get the length of a string
+        System.out.println("Length of the string: " + s.length());
+
+        // Converting between strings and integers
+        String numStr = "123";
+        int numInt = Integer.parseInt(numStr);  // Convert to integer
+        String strFromInt = String.valueOf(numInt);  // Convert to string
+        System.out.println("Conversion from string to int and back: " + numInt + ", " + strFromInt);
+
+3. Stack Operations
+        // Stacks (LIFO behavior)
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);  // Push onto stack
+        stack.push(2);
+        Integer topElement = stack.pop();  // Pop from stack
+        System.out.println("Stack operations: " + stack);
+
+        // Get the length of a stack
+        System.out.println("Length of the stack: " + stack.size());
+
+4. Queue Operations
+
+        // Queues (FIFO behavior)
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(1);  // Enqueue (same as `put`)
+        q.offer(2);
+        q.add(3);
+        q.remove();
+        Integer firstInQueue = q.poll();  // Dequeue
+        System.out.println("Queue operations: " + firstInQueue + ", " + q.size());  // Get queue size
+
+        // Get the length of a queue
+        System.out.println("Queue size: " + q.size());
+
+5. Deque Operations
+
+        // Deque (Double-ended queue)
+        Deque<Integer> dq = new ArrayDeque<>();
+        dq.offerLast(4);  // Add to the end
+        dq.offerFirst(0);  // Add to the front
+        dq.pollLast();  // Remove from the end
+        dq.pollFirst();  // Remove from the front
+        System.out.println("Deque operations: " + dq);
+
+        // Get the length of a deque
+        System.out.println("Length of the deque: " + dq.size());
+
+6. Heap Operations
+
+        // Min-heap operations
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        heap.offer(3);  // Push onto heap
+        heap.offer(1);
+        heap.offer(2);
+
+        Integer smallestElement = heap.poll();  // Pop the smallest
+        System.out.println("Min-heap operations: " + smallestElement + ", " + heap);
+
+        // Get the length of the heap
+        System.out.println("Length of the heap: " + heap.size());
+        System.out.println("Top of min-heap: " + pq.peek()); 
+        System.out.println("Polled element: " + pq.poll()); // Output: 5 (removes smallest element)
+        pq.remove(20);
+        pq.clear();
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+
+9. Sets and Set Operations
+
+        // Set operations
+        Set<Integer> s = new HashSet<>(Arrays.asList(1, 2, 3));
+        s.add(4);  // Add to set
+        s.remove(2);  // Remove from set
+        Set<Integer> sUnion = new HashSet<>(s); 
+        sUnion.addAll(Arrays.asList(5, 6));  // Union of sets
+        Set<Integer> sIntersection = new HashSet<>(s);
+        sIntersection.retainAll(Arrays.asList(1, 4, 6));  // Intersection of sets
+        System.out.println("Set operations: " + s + ", " + sUnion + ", " + sIntersection);
+
+        // Get the length of a set
+        System.out.println("Length of the set: " + s.size());
+10. Dictionary Operations (HashMaps)
+
+        // Dictionary (HashMap) operations
+        Map<String, Object> d = new HashMap<>();
+        d.put("name", "Alice");
+        d.put("age", 25);
+        d.put("city", "New York");
+
+        // Accessing values by key
+        String name = (String) d.get("name");  // Get value by key
+        int age = (int) d.getOrDefault("age", 0);  // Safe way to get value with a default
+        System.out.println("Name and Age: " + name + ", " + age);
+
+        // Adding and modifying dictionary values
+        d.put("city", "Los Angeles");  // Modify existing key
+        d.put("country", "USA");  // Add new key-value pair
+        System.out.println("Updated dictionary: " + d);
+
+        // Removing dictionary elements
+        d.remove("city");  // Delete a key-value pair
+        Object cityRemoved = d.remove("city");  // Safe removal with default
+        System.out.println("Dictionary after deletion: " + d);
+
+        // Looping through a dictionary
+        for (Map.Entry<String, Object> entry : d.entrySet()) {  // Loop through keys and values
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Get the length of a dictionary
+        System.out.println("Length of the dictionary: " + d.size());
+
+        // Sorting a dictionary by key or value
+        List<String> sortedKeys = new ArrayList<>(d.keySet());
+        Collections.sort(sortedKeys);  // Get a sorted list of keys
+        List<Object> sortedValues = new ArrayList<>(d.values());
+        Collections.sort(sortedValues, new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return o1.toString().compareTo(o2.toString());
+            }
+        });  // Get a sorted list of values
+
+    }
+}
+
+11 StringBuilder 
+
+StringBuilder sb3 = new StringBuilder("Hello"); // Initialized with a string
+
+Appending:
+You can append various data types like String, int, double, char, etc.
+This is the most common use case when building a string.
+
+StringBuilder sb = new StringBuilder();
+sb.append("Hello, ");
+
+Inserting:
+Inserts a string or value at a specified position in the StringBuilder.
+sb.insert(7, "beautiful "); // "Hello, beautiful World!"
+
+Replacing:
+Replaces a range of characters with a given string.
+sb.replace(7, 16, "everyone"); // "Hello, everyone!"
+
+Deleting:
+Deletes a range of characters.
+sb.delete(7, 16); // "Hello, !"
+
+Deleting a character:
+Deletes a specific character at a given index.
+sb.deleteCharAt(7); // "Hello,!"
+
+Reversing:
+Reverses the entire StringBuilder.
+sb.reverse(); // "! ,olleH"
+
+Length and Capacity:
+length() returns the current length of the StringBuilder.
+capacity() returns the current capacity.
+
+// Create a StringBuilder with a numeric string
+StringBuilder rev_string = new StringBuilder("12345");
+
+// Convert StringBuilder to String
+String str = rev_string.toString();
+
+// Convert String to integer
+int number = Integer.parseInt(str);
+
+12 : Comparator
+
+Comparator<int[]> reversedEndComparator = new Comparator<int[]>() {
+    @Override
+    public int compare(int[] a, int[] b) {
+        return Integer.compare(b[1], a[1]); // Sort by the second element in reverse order
+    }
+};
+
+Array.sort(reversedEndComparator);
+
+12 : General Syntax 
+
+// Converting a string to an integer
+ String str = "12345";
+ int num = Integer.parseInt(str);
+
+

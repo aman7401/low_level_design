@@ -1,0 +1,71 @@
+A Deque (Double-Ended Queue) is a type of data structure that allows you to add and 
+remove elements from both ends. In Java, Deque is part of the Java Collections Framework, 
+providing flexibility for various operations, such as implementing stacks (LIFO) or queues 
+(FIFO). Below are some key methods and implementations of Deque, along with examples 
+demonstrating common operations.
+
+Implementations of Deque
+Java provides multiple implementations for Deque:
+
+LinkedList: A doubly linked list implementation of Deque.
+ArrayDeque: A resizable array-based implementation, often preferred for its efficiency in adding and removing elements from both ends.
+ConcurrentLinkedDeque: A thread-safe implementation for concurrent use.
+Key Methods in Deque
+Adding Elements:
+
+addFirst(E e): Adds an element to the front. Throws an exception if it fails.
+addLast(E e): Adds an element to the end. Throws an exception if it fails.
+offerFirst(E e): Adds to the front; returns false if it fails.
+offerLast(E e): Adds to the end; returns false if it fails.
+Removing Elements:
+
+removeFirst(): Removes and returns the first element. Throws an exception if empty.
+removeLast(): Removes and returns the last element. Throws an exception if empty.
+pollFirst(): Removes and returns the first element; returns null if empty.
+pollLast(): Removes and returns the last element; returns null if empty.
+Accessing Elements:
+
+getFirst(): Returns the first element without removing; throws an exception if empty.
+getLast(): Returns the last element without removing; throws an exception if empty.
+peekFirst(): Returns the first element without removing; returns null if empty.
+peekLast(): Returns the last element without removing; returns null if empty.
+Utility and Checking:
+
+isEmpty(): Returns true if the deque is empty; otherwise false.
+size(): Returns the number of elements in the deque.
+clear(): Removes all elements from the deque.
+Example Usage of Deque
+Here's an example demonstrating common operations with a Deque using LinkedList and ArrayDeque:
+
+java
+Copy code
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.ArrayDeque;
+
+public class DequeExample {
+    public static void main(String[] args) {
+        // Using LinkedList as a Deque
+        Deque<Integer> deque = new LinkedList<>();
+        
+        // Adding elements to both ends
+        deque.addFirst(1); // Add to front
+        deque.addLast(2);  // Add to end
+        deque.offerLast(3); // Offer to end, no exception if fails
+
+        System.out.println("First element: " + deque.peekFirst()); // Output: 1
+        System.out.println("Last element: " + deque.peekLast());  // Output: 3
+        
+        // Removing elements from both ends
+        System.out.println("Removed first: " + deque.removeFirst()); // Output: 1
+        System.out.println("Removed last: " + deque.removeLast());   // Output: 3
+        
+        // Checking if deque is empty
+        System.out.println("Is deque empty? " + deque.isEmpty()); // Output: false
+        
+        // Clearing the deque
+        deque.clear();
+        System.out.println("After clearing, is deque empty? " + deque.isEmpty()); // Output: true
+    }
+}
+This example demonstrates how to use Deque to add and remove elements from both ends, check if it's empty, and clear it when needed. Depending on the implementation, Deque can be used for a variety of scenarios, from simple stacks/queues to more complex data structures.

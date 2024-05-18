@@ -1,0 +1,106 @@
+ArrayList vs. LinkedList
+The LinkedList class is a collection which can contain many objects of the same type, just like the ArrayList.
+
+The LinkedList class has all of the same methods as the ArrayList class because they both implement the List interface. This means that you can add items, change items, remove items and clear the list in the same way.
+
+However, while the ArrayList class and the LinkedList class can be used in the same way, they are built very differently.
+
+How the ArrayList works
+The ArrayList class has a regular array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.
+
+How the LinkedList works
+The LinkedList stores its items in "containers." The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.
+
+
+A LinkedList in Java is a data structure that represents a doubly linked list, part of the Java Collections Framework. Unlike ArrayList, which uses an array to store elements, LinkedList uses nodes where each node contains an element and references to the next and previous nodes. This makes LinkedList efficient for adding and removing elements, particularly at the beginning or end of the list, but less efficient for random access due to sequential traversal.
+
+Here's a detailed guide to the LinkedList class, including common methods, usage examples, and characteristics:
+
+import java.util.LinkedList;
+Basic Operations
+Creating a LinkedList:
+```java
+import java.util.LinkedList;
+LinkedList<String> list = new LinkedList<>();  // Creating an empty LinkedList
+LinkedList<Integer> listWithValues = new LinkedList<>(List.of(1, 2, 3));  // LinkedList with initial values
+
+Adding Elements:
+list.add("Apple");  // Adds to the end
+list.addFirst("Banana");  // Adds to the beginning
+list.addLast("Cherry");  // Adds to the end
+
+Removing Elements:
+list.remove("Banana");  // Removes by object
+list.remove(0);  // Removes by index
+list.removeFirst();  // Removes the first element
+list.removeLast();  // Removes the last element
+
+Accessing and Updating Elements
+Getting Elements:
+String firstItem = list.getFirst();  // Gets the first element
+String lastItem = list.getLast();  // Gets the last element
+String secondItem = list.get(1);  // Gets the element at index 1
+
+Updating Elements:
+list.set(1, "Orange");  // Changes the second element to "Orange"
+Informational Methods
+
+Size and Emptiness:
+int size = list.size();  // Gets the size of the list
+boolean isEmpty = list.isEmpty();  // Checks if the list is empty
+
+Contains:
+boolean containsApple = list.contains("Apple");  // Checks if the list contains "Apple"
+Special Operations for LinkedList
+
+Adding and Removing from Ends:
+list.addFirst("Pineapple");  // Adds to the beginning
+list.addLast("Mango");  // Adds to the end
+
+String removedFirst = list.removeFirst();  // Removes and returns the first element
+String removedLast = list.removeLast();  // Removes and returns the last element
+
+Peeking at Elements:
+String firstElement = list.peek();  // Peeks at the first element without removing it
+String lastElement = list.peekLast();  // Peeks at the last element without removing it
+
+Polling Elements:
+String polledFirst = list.poll();  // Retrieves and removes the first element
+String polledLast = list.pollLast();  // Retrieves and removes the last element
+
+Iteration and Looping
+Using a for Loop:
+for (int i = 0; i < list.size(); i++) {
+  System.out.println(list.get(i));  // Prints each element
+}
+
+Using a for-each Loop:
+for (String item : list) {
+  System.out.println(item);  // Prints each element
+}
+
+Using an Iterator:
+Iterator<String> iterator = list.iterator();
+while (iterator.hasNext()) {
+  System.out.println(iterator.next());
+}
+
+Other Useful Methods
+Converting to an Array:
+String[] array = list.toArray(new String[0]);  // Converts the list to an array
+
+Sublist:
+LinkedList<String> subList = new LinkedList<>(list.subList(1, 3));  // Creates a sublist from index 1 to 2 (exclusive)
+
+Clearing the List:
+list.clear();  // Removes all elements from the list
+
+
+Comparison with ArrayList
+Efficiency:
+LinkedList is efficient for frequent additions or deletions, particularly at the beginning or end.
+ArrayList is more efficient for random access and iterating through elements due to contiguous memory.
+Use Cases:
+Use LinkedList when you need a queue or stack behavior with frequent insertions/removals.
+Use ArrayList when you need constant-time access by index or generally prefer a resizable array.
+These are the essential methods and operations for working with LinkedList in Java, providing flexibility and convenience in various contexts.

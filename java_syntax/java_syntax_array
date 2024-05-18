@@ -1,0 +1,61 @@
+
+In Java, arrays are a fundamental data structure that allows you to store
+multiple elements of the same type in a contiguous block of memory.
+Although arrays in Java are fixed in size, the java.util.Arrays class provides a 
+variety of static methods for manipulating arrays, such as sorting, searching, 
+comparing, and more.
+
+Basic Array Operations
+Creating an Array:
+
+int[] numbers = {1, 2, 3, 4, 5};  // Creates an array with initial values
+int[] emptyArray = new int[5];    // Creates an empty array of size 5
+
+Accessing Array Elements:
+int firstElement = numbers[0];  // Accesses the first element
+numbers[2] = 10;  // Sets the third element to 10
+
+
+java.util.Arrays Functions
+sort(): Sorts an array in ascending order.
+int[] arr = {5, 3, 2, 1, 4};
+Arrays.sort(arr);  // arr is now {1, 2, 3, 4, 5}
+
+
+binarySearch(): Performs binary search on a sorted array.
+int index = Arrays.binarySearch(arr, 3);  // Returns 2 (the index of 3)
+
+
+fill(): Fills all elements in an array with a specified value.
+int[] arr = new int[5];
+Arrays.fill(arr, 7);  // All elements are now 7
+
+equals(): Checks if two arrays are equal (same elements in the same order).
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+boolean areEqual = Arrays.equals(arr1, arr2);  // true
+
+copyOf(): Copies elements from an array to a new array, optionally resizing.
+int[] original = {1, 2, 3};
+int[] copy = Arrays.copyOf(original, 5);  // Copy with new length 5
+
+copyOfRange(): Copies a range of elements from one array to another.
+int[] arr = {1, 2, 3, 4, 5};
+int[] subArray = Arrays.copyOfRange(arr, 1, 4);  // {2, 3, 4}
+
+toString(): Converts an array to a string representation.
+int[] arr = {1, 2, 3};
+String arrString = Arrays.toString(arr);  // "[1, 2, 3]"
+
+deepEquals(): Compares two nested arrays to check if they are equivalent.
+int[][] arr1 = {{1, 2}, {3, 4}};
+int[][] arr2 = {{1, 2}, {3, 4}};
+boolean areEqual = Arrays.deepEquals(arr1, arr2);  // true
+
+hashCode(): Returns a hash code for an array, useful for data structures that use hashing.
+int[] arr = {1, 2, 3};
+int hash = Arrays.hashCode(arr);  // Hash code for the array
+
+asList(): Converts an array to a list (returns a fixed-size list backed by the array).
+Integer[] arr = {1, 2, 3};
+List<Integer> list = Arrays.asList(arr);  // List with elements from the array

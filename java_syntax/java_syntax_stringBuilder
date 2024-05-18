@@ -1,0 +1,75 @@
+StringBuilder is a class in Java.lang designed for efficient string manipulation, 
+particularly when you need to build a string by appending or modifying it frequently. 
+It avoids the immutability overhead of String, which creates a new object every time it 
+is modified.
+
+Here are some of the key functions and features of StringBuilder:
+
+Initialization:
+You can initialize a StringBuilder with or without an initial capacity.
+If not specified, the default capacity is 16 characters.
+If you know the approximate length of the final string, 
+it's a good practice to specify an initial capacity to reduce reallocation.
+
+
+StringBuilder sb1 = new StringBuilder(); // Default capacity
+StringBuilder sb2 = new StringBuilder(50); // Specified capacity
+StringBuilder sb3 = new StringBuilder("Hello"); // Initialized with a string
+Appending:
+
+You can append various data types like String, int, double, char, etc.
+This is the most common use case when building a string.
+
+StringBuilder sb = new StringBuilder();
+sb.append("Hello, ");
+sb.append("World!");
+sb.append(2024); // Appends the integer
+
+Inserting:
+Inserts a string or value at a specified position in the StringBuilder.
+sb.insert(7, "beautiful "); // "Hello, beautiful World!"
+
+Replacing:
+Replaces a range of characters with a given string.
+sb.replace(7, 16, "everyone"); // "Hello, everyone!"
+
+Deleting:
+Deletes a range of characters.
+sb.delete(7, 16); // "Hello, !"
+
+Deleting a character:
+Deletes a specific character at a given index.
+sb.deleteCharAt(7); // "Hello,!"
+
+Reversing:
+Reverses the entire StringBuilder.
+sb.reverse(); // "! ,olleH"
+
+Length and Capacity:
+length() returns the current length of the StringBuilder.
+capacity() returns the current capacity.
+
+You can increase the capacity with ensureCapacity().
+int len = sb.length(); // Returns the current length
+int cap = sb.capacity(); // Returns the current capacity
+sb.ensureCapacity(100); // Ensures a capacity of at least 100
+
+Converting to String:
+To convert a StringBuilder to a String, use the toString() method.
+String finalString = sb.toString(); // Converts to String
+Overall, StringBuilder is a powerful tool for string manipulation in Java
+,offering efficiency and flexibility for tasks involving frequent string operations.
+
+
+// Create a StringBuilder with a numeric string
+StringBuilder rev_string = new StringBuilder("12345");
+
+// Convert StringBuilder to String
+String str = rev_string.toString();
+
+// Convert String to integer
+int number = Integer.parseInt(str);
+
+// Now you have the integer
+System.out.println(number); // Outputs: 12345
+

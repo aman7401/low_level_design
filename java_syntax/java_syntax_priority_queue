@@ -1,0 +1,60 @@
+PriorityQueue is a Java class from the Java Collections Framework that represents a 
+queue where elements are ordered according to their natural order or by a specified 
+comparator. It functions as a min-heap by default, meaning the smallest element is always 
+at the front of the queue. This makes PriorityQueue useful in scenarios where you 
+need to extract the smallest (or largest) element efficiently, like implementing 
+algorithms such as Dijkstra's or for scheduling tasks.
+
+
+import java.util.PriorityQueue;
+import java.util.Collections;
+
+public class PriorityQueueDemo {
+
+    public static void main(String[] args) {
+        // Create a PriorityQueue with natural ordering (min-heap)
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        // Add elements to the PriorityQueue
+        pq.add(10); // Add elements using `add()`
+        pq.add(20);
+        pq.add(5);
+
+        // `offer()` is similar to `add()`, but returns `false` if it can't add
+        pq.offer(15);
+
+        // Peek to see the top element without removing it
+        System.out.println("Top of min-heap: " + pq.peek()); // Output: 5 (smallest element)
+
+        // Poll to remove and get the top element
+        System.out.println("Polled element: " + pq.poll()); // Output: 5 (removes smallest element)
+
+        // Check if a particular element is in the queue
+        System.out.println("Contains 10? " + pq.contains(10)); // Output: true
+
+        // Get the size of the PriorityQueue
+        System.out.println("Size of PriorityQueue: " + pq.size()); // Output: 3 (10, 20, 15)
+
+        // Remove a specific element
+        pq.remove(20);
+        System.out.println("Size after removal: " + pq.size()); // Output: 2 (10, 15)
+
+        // Clear all elements
+        pq.clear();
+        System.out.println("Size after clearing: " + pq.size()); // Output: 0
+
+        // Create a max-heap with `Collections.reverseOrder()`
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Add elements to the max-heap
+        maxHeap.add(10);
+        maxHeap.add(20);
+        maxHeap.add(5);
+
+        System.out.println("Top of max-heap: " + maxHeap.peek()); // Output: 20 (largest element)
+
+        // Poll and check the next top
+        System.out.println("Polled from max-heap: " + maxHeap.poll()); // Output: 20 (removes largest element)
+        System.out.println("Next top of max-heap: " + maxHeap.peek()); // Output: 10 (next largest)
+    }
+}

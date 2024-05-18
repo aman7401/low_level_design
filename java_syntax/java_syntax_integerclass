@@ -1,0 +1,30 @@
+
+The Integer class in Java is a wrapper class that encapsulates a primitive int data
+type into an object. This allows int values to be used in contexts where objects are 
+required, such as with certain collections and APIs.
+The Integer class also provides utility methods for operations involving integers.
+
+    public static void main(String[] args) {
+        // Converting a string to an integer
+        String str = "12345";
+        int num = Integer.parseInt(str);
+
+        System.out.println("Parsed Integer: " + num); // Outputs: Parsed Integer: 12345
+
+        // Comparing two integers
+        int a = 10;
+        int b = 20;
+
+        int comparison = Integer.compare(a, b);
+        System.out.println("Comparison Result: " + comparison); // Outputs: Comparison Result: -1 (a < b)
+
+        // Using Integer.bitCount() to count the number of one-bits in an integer
+        int bitValue = 7; // binary: 111
+        int bitCount = Integer.bitCount(bitValue);
+
+        System.out.println("Number of One-bits: " + bitCount); // Outputs: Number of One-bits: 3
+
+        // Using Integer.reverse() to reverse the bit pattern of an integer
+        int reversedBits = Integer.reverse(bitValue);
+        System.out.println("Reversed Bits: " + reversedBits); // Outputs: Reversed Bits: -1073741824 (binary: 111...000)
+

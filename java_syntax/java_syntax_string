@@ -1,0 +1,101 @@
+
+The String class in Java provides a comprehensive set of methods to work with strings. Here's a summary of the most common methods along with examples of how you might use them:
+
+Manipulation Methods
+
+
+concat(String str): Concatenates the specified string to the end of the current string.
+String s1 = "Hello";
+String s2 = "World";
+String result = s1.concat(" " + s2);
+
+replace(char oldChar, char newChar): Replaces all occurrences of oldChar with newChar.
+String s = "Java";
+String result = s.replace('a', 'o');  // "Jovo"
+
+replaceAll(String regex, String replacement): Replaces all occurrences matching the regex pattern.
+String s = "banana";
+String result = s.replaceAll("na", "no");  // "bonono"
+
+substring(int beginIndex, int endIndex): Returns a substring from beginIndex (inclusive) to endIndex (exclusive).
+String s = "Hello, World!";
+String result = s.substring(7, 12);  // "World"
+
+toLowerCase(): Converts all characters to lowercase.
+String s = "Hello";
+String result = s.toLowerCase();  // "hello"
+
+toUpperCase(): Converts all characters to uppercase.
+String s = "hello";
+String result = s.toUpperCase();  // "HELLO"
+
+
+Informational Methods
+length(): Returns the length of the string.
+String s = "Hello";
+int length = s.length();  // 5
+
+charAt(int index): Returns the character at the specified index.
+String s = "Hello";
+char ch = s.charAt(1);  // 'e'
+
+indexOf(String str): Returns the index of the first occurrence of str. Returns -1 if not found.
+String s = "Hello, World!";
+int index = s.indexOf("World");  // 7
+
+equals(Object obj): Checks if this string is equal to obj.
+String s1 = "Hello";
+String s2 = "Hello";
+boolean isEqual = s1.equals(s2);  // true
+
+equalsIgnoreCase(String anotherString): Checks if this string is equal to anotherString ignoring case.
+String s1 = "hello";
+String s2 = "HELLO";
+boolean isEqual = s1.equalsIgnoreCase(s2);  // true
+
+contains(CharSequence s): Checks if this string contains s.
+String s = "Hello, World!";
+boolean contains = s.contains("World");  // true
+
+startsWith(String prefix): Checks if this string starts with prefix.
+String s = "Hello";
+boolean starts = s.startsWith("He");  // true
+
+endsWith(String suffix): Checks if this string ends with suffix.
+String s = "Hello";
+boolean ends = s.endsWith("lo");  // true
+
+Splitting and Joining Methods
+
+split(String regex): Splits the string into an array based on a regex pattern.
+String s = "one,two,three";
+String[] parts = s.split(",");  // ["one", "two", "three"]
+
+join(CharSequence delimiter, CharSequence... elements): Joins multiple strings into one using a delimiter.
+String[] parts = {"one", "two", "three"};
+String result = String.join(",", parts);  // "one,two,three"
+
+trim(): Removes leading and trailing spaces.
+String s = "   Hello   ";
+String result = s.trim();  // "Hello"
+
+isEmpty(): Checks if the string is empty.
+String s = "";
+boolean isEmpty = s.isEmpty();  // true
+
+
+compareTo(String anotherString): Compares this string with anotherString lexicographically.
+String s1 = "Hello";
+String s2 = "World";
+int comparison = s1.compareTo(s2);  // Negative because "H" comes before "W"
+
+
+compareToIgnoreCase(String anotherString): Compares this string with anotherString ignoring case.
+String s1 = "hello";
+String s2 = "HELLO";
+int comparison = s1.compareToIgnoreCase(s2);  // 0 (they're equal, ignoring case)
+
+
+toCharArray(): Converts the string into a character array.
+String s = "Hello";
+char[] chars = s.toCharArray();  // ['H', 'e', 'l', 'l', 'o']
